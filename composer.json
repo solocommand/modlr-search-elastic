@@ -1,0 +1,22 @@
+{
+    "name": "as3/modlr-search-elastic",
+    "license": "Apache-2.0",
+    "type": "library",
+    "description": "Elastic search client for the Modlr REST library.",
+    "authors": [
+        {
+            "name": "Jacob Bare",
+            "email": "jacob.bare@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "As3\\Modlr\\Search\\Elastic\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.4",
+        "as3/modlr": "^1.0",
+        "doctrine/mongodb": "^1.2"
+    }
+}
