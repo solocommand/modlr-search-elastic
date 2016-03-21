@@ -17,11 +17,6 @@ class StorageMetadata implements StorageLayerInterface
     /**
      * @var string
      */
-    public $clientKey;
-
-    /**
-     * @var string
-     */
     public $index;
 
     /**
@@ -36,7 +31,7 @@ class StorageMetadata implements StorageLayerInterface
      */
     public function getKey()
     {
-        return $this->clientKey;
+        return Client::CLIENT_KEY;
     }
 
     /**

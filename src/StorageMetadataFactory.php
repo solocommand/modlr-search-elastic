@@ -2,10 +2,11 @@
 
 namespace As3\Modlr\Search\Elastic;
 
-use As3\Modlr\Util\EntityUtility;
 use As3\Modlr\Exception\MetadataException;
 use As3\Modlr\Metadata\EntityMetadata;
+use As3\Modlr\Metadata\Interfaces\StorageLayerInterface;
 use As3\Modlr\Metadata\Interfaces\StorageMetadataFactoryInterface;
+use As3\Modlr\Util\EntityUtility;
 
 /**
  * Creates Elastic search storage Metadata instances for use with metadata drivers.
@@ -18,9 +19,17 @@ final class StorageMetadataFactory implements StorageMetadataFactoryInterface
     /**
      * {@inheritDoc}
      */
-    public function getNewInstance()
+    public function createInstance(array $mapping)
     {
-        return new StorageMetadata();
+        $search = new StorageMetadata();
+        if (isset($mapping['index'])) {
+            $search->index = $mapping['index'];
+        }
+
+        if (isset($mapping['type'])) {
+            $search->type = $mapping['type'];
+        }
+        return $search;
     }
 
     /**
@@ -37,4 +46,6 @@ final class StorageMetadataFactory implements StorageMetadataFactoryInterface
     {
         $search = $metadata->search;
     }
+
+
 }
